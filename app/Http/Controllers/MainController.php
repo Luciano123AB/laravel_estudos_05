@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -66,8 +67,21 @@ class MainController extends Controller
         //               ->orWhere("product_name", "like", "A%")
         //               ->get();
 
+        // $products = DB::table("products")
+        //               ->where([
+        //                   ["price", ">", 50],
+        //                   ["product_name", "like", "A%"]
+        //               ])->get();
+
+        $products = DB::table("products")
+                      ->where("price", ">", 90)
+                      ->orWhere(function(Builder $query) {
+                          $query->where("product_name", "Banana")
+                                ->orWhere("product_name", "Cereja");
+                      })->get();
+
         // $this->showRawTable($products);
-        // $this->showDataTable($products);
+        $this->showDataTable($products);
     }
 
     private function showRawTable($data) {
