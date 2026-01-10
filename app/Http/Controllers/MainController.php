@@ -40,10 +40,34 @@ class MainController extends Controller
         // $results = DB::table("products")->get()->last();
 
         //SELECT * FROM products WHERE id = 10:
-        $results = DB::table("products")->find(10);
+        // $results = DB::table("products")->find(10);
 
-        $this->showRawTable($results);
-        // $this->showDataTable($results);
+        //select com where:
+        // $products = DB::table("products")->where("id", ">=", 10)->get();
+
+        // $products = DB::table("products")
+        //               ->select("product_name", "price")
+        //               ->get();
+
+        //SELECT * FROM products WHERE price > 70:
+        // $products = DB::table("products")
+        //               ->where("price", ">", 70)
+        //               ->get();
+
+        //SELECT * FROM products WHERE price > 50 AND pruduct_name LIKE "A%":
+        // $products = DB::table("products")
+        //               ->where("price", ">", 50)
+        //               ->where("product_name", "like", "A%")
+        //               ->get();
+
+        //SELECT * FROM products WHERE price > 80 OR pruduct_name LIKE "A%":
+        // $products = DB::table("products")
+        //               ->where("price", ">", 80)
+        //               ->orWhere("product_name", "like", "A%")
+        //               ->get();
+
+        // $this->showRawTable($products);
+        // $this->showDataTable($products);
     }
 
     private function showRawTable($data) {
