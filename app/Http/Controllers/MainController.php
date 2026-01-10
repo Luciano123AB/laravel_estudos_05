@@ -11,7 +11,7 @@ class MainController extends Controller
 
         $clients = DB::table("clients")->get();
 
-        //$this->showRawTable($clients);
+        // $this->showRawTable($clients);
         $this->showDataTable($clients);
     }
 
