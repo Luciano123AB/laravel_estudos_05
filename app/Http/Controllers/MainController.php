@@ -55,13 +55,13 @@ class MainController extends Controller
         //               ->where("price", ">", 70)
         //               ->get();
 
-        //SELECT * FROM products WHERE price > 50 AND pruduct_name LIKE "A%":
+        //SELECT * FROM products WHERE price > 50 AND product_name LIKE "A%":
         // $products = DB::table("products")
         //               ->where("price", ">", 50)
         //               ->where("product_name", "like", "A%")
         //               ->get();
 
-        //SELECT * FROM products WHERE price > 80 OR pruduct_name LIKE "A%":
+        //SELECT * FROM products WHERE price > 80 OR product_name LIKE "A%":
         // $products = DB::table("products")
         //               ->where("price", ">", 80)
         //               ->orWhere("product_name", "like", "A%")
