@@ -117,12 +117,44 @@ class MainController extends Controller
         //               ->whereDate("created_at", "2032-02-14")
         //               ->get();
         
-        $clients = DB::table("clients")
-                      ->whereDay("created_at", "10")
-                      ->get();
+        // $clients = DB::table("clients")
+        //               ->whereDay("created_at", "10")
+        //               ->get();
 
         // $this->showRawTable($products);
-        $this->showDataTable($clients);
+        // $this->showDataTable($clients);
+
+        //Queres ir buscar dados agregados:
+        // $count = DB::table("products")->count();
+        // $max_price = DB::table("products")->max("price");
+        // $min_price = DB::table("products")->min("price");
+        // $avg_price = DB::table("products")->avg("price");
+        // $sum_price = DB::table("products")->sum("price");
+
+        // echo "<pre>";
+        //     print_r([
+        //         "count" => $count,
+        //         "max_price" => $max_price,
+        //         "min_price" => $min_price,
+        //         "avg_price" => $avg_price,
+        //         "sum_price" => $sum_price
+        //     ]);
+        // echo "</pre>";
+
+        //Coordenar os produtos por preço descente:
+        // $results = DB::table("products")
+        //               ->orderBy("price", "desc")
+        //               ->get();
+
+        // $this->showDataTable($results);
+
+        //Buscar apenas os produtos com os 3 preços mais caros:
+        $results = DB::table("products")
+                      ->orderBy("price", "desc")
+                      ->limit(3)
+                      ->get();
+
+        $this->showDataTable($results);
     }
 
     private function showRawTable($data) {
