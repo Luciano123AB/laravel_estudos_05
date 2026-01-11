@@ -73,15 +73,56 @@ class MainController extends Controller
         //                   ["product_name", "like", "A%"]
         //               ])->get();
 
-        $products = DB::table("products")
-                      ->where("price", ">", 90)
-                      ->orWhere(function(Builder $query) {
-                          $query->where("product_name", "Banana")
-                                ->orWhere("product_name", "Cereja");
-                      })->get();
+        // $products = DB::table("products")
+        //               ->where("price", ">", 90)
+        //               ->orWhere(function(Builder $query) {
+        //                   $query->where("product_name", "Banana")
+        //                         ->orWhere("product_name", "Cereja");
+        //               })->get();
+
+        // $products = DB::table("products")
+        //               ->where("product_name", "not like", "M%")
+        //               ->get();
+
+        // $products = DB::table("products")
+        //               ->whereNot("product_name", "like", "M%")
+        //               ->get();
+
+        // $results = DB::table("clients")
+        //               ->whereAny(["client_name", "email"], "like", "%tr%")
+        //               ->get();
+
+        // $products = DB::table("products")
+        //               ->whereBetween("price", [25, 50])
+        //               ->get();
+
+        // $products = DB::table("products")
+        //               ->whereNotBetween("price", [25, 50])
+        //               ->get();
+
+        //SELECT * FROM products WHERE id = 1 OR id = 3 OR id = 5
+        // $products = DB::table("products")
+        //               ->whereIn("id", [1, 3, 5])
+        //               ->get();
+
+        // $products = DB::table("products")
+        //               ->whereNotIn("id", [1, 3, 5])
+        //               ->get();
+
+        // $clients = DB::table("clients")
+        //               ->whereNotNull("deleted_at")
+        //               ->get();
+
+        // $clients = DB::table("clients")
+        //               ->whereDate("created_at", "2032-02-14")
+        //               ->get();
+        
+        $clients = DB::table("clients")
+                      ->whereDay("created_at", "10")
+                      ->get();
 
         // $this->showRawTable($products);
-        $this->showDataTable($products);
+        $this->showDataTable($clients);
     }
 
     private function showRawTable($data) {
